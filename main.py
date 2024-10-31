@@ -1,34 +1,30 @@
-def verificar_set(juegos_a, juegos_b):
-    # Comprobar si los resultados son inválidos
-    if juegos_a < 0 or juegos_b < 0:
-        return "Invalido"
-    if juegos_a > 7 or juegos_b > 7:
-        return "Invalido"
-    if (juegos_a >= 6 and juegos_a - juegos_b < 2) or (juegos_b >= 6 and juegos_b - juegos_a < 2):
-        return "Invalido"
-
-    # Verificar si alguien ganó el set
-    if juegos_a >= 6 and juegos_a - juegos_b >= 2:
-        return "Gano A"
-    elif juegos_b >= 6 and juegos_b - juegos_a >= 2:
-        return "Gano B"
-    # Verificar si el set aún no ha terminado
+def triangle_type(a, b, c):
+    # Check if the triangle is valid
+    if a + b > c and a + c > b and b + c > a:
+        # Determine the type of triangle
+        if a == b == c:
+            return "The triangle is equilateral."
+        elif a == b or a == c or b == c:
+            return "The triangle is isosceles."
+        else:
+            return "The triangle is scalene."
     else:
-        return "Aun no termina"
+        return "It is not a valid triangle."
 
-# Ciclo para recibir entradas del usuario
+# Loop to receive user input
 while True:
     try:
-        juegos_a = int(input("Juegos ganados por A: "))
-        juegos_b = int(input("Juegos ganados por B: "))
+        a = float(input("Enter a: "))
+        b = float(input("Enter b: "))
+        c = float(input("Enter c: "))
 
-        # Verificar el estado del set y mostrar el resultado
-        resultado = verificar_set(juegos_a, juegos_b)
-        print(resultado)
+        # Check the type of triangle and display the result
+        result = triangle_type(a, b, c)
+        print(result)
 
-        # Preguntar si se desea continuar
-        continuar = input("¿Desea ingresar otro resultado? (si/no): ")
-        if continuar.lower() != 'si':
+        # Ask if the user wants to continue
+        continue_input = input("Do you want to enter another set of sides? (yes/no): ")
+        if continue_input.lower() != 'yes':
             break
     except ValueError:
-        print("Entrada no válida. Por favor ingrese un número entero.")
+        print("Invalid input. Please enter a number.")
