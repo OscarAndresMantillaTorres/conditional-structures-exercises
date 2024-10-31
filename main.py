@@ -1,6 +1,18 @@
-number = int(input("Enter a number: "))
+def isleapYear(year):
+    
+    if year >= 1582:
+        
+        if (yeis_leap_yearar % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+            return True
+        else:
+            return False
+    else:
+        
+        return year % 4 == 0
 
-if number  % 2 == 0: 
-    print("Its number is even") 
+
+year = int(input("Enter a year: "))
+if isleapYear(year):
+    print(f"The year {year} It's a leap year.")
 else:
-    print("Its number is odd") 
+    print(f"The year {year} It is not a leap year.")
