@@ -1,12 +1,15 @@
 
-quantity = int(input("How many numbers do you want to enter? "))
+character = input("Enter a character: ")
 
 
-numbers = []
-for i in range(quantity):
-    number = int(input(f"Enter number {i + 1}: "))
-    numbers.append(number)
+if character.isdigit():
+    print("It is a number.")
 
+elif character.isalpha():
+    if character.isupper():
+        print("It is an uppercase letter.")
+    else:
+        print("It is a lowercase letter.")
 
-sorted_numbers = sorted(numbers)
-print("Sorted numbers:", " ".join(map(str, sorted_numbers)))
+else:
+    print("It is neither a letter nor a number.")
